@@ -2,7 +2,12 @@ import { useState, useReducer } from 'react'
 import { initialState } from './Data/data'
 import './App.css'
 
-function App() {
+function TodoList() {
+
+  function todoReducer() {}
+
+// Using the useReducer to Manage the State of the list
+const [todos, dispatch] = useReducer(todoReducer, initialState)
   
   return (
     <>
@@ -17,18 +22,15 @@ function App() {
           <ul>
             <h3>Current List</h3> 
 
-            {initialState.map(todo => (
-            <li className='todolistbollet'>
-            <input className='displayTodoListLI' type="text" value={todo.title}/> 
-            <input className='todoCheckBox' type="checkbox" value={todo.completed}/>
-            <div className='todoJobBTNsContainer'>
-                <button className='editDeleteBTNS'>Edit</button>
-                <button className='editDeleteBTNS'>Delete</button>
-            </div>
-          </li>
-
-
-
+            {todos.map(todo => (
+                <li className='todolistbollet'>
+                <input className='displayTodoListLI' type="text" value={todo.title}/> 
+                <input className='todoCheckBox' type="checkbox" value={todo.completed}/>
+                <div className='todoJobBTNsContainer'>
+                    <button className='editDeleteBTNS'>Edit</button>
+                    <button className='editDeleteBTNS'>Delete</button>
+                </div>
+              </li>
             ))}
           </ul>
 
@@ -38,4 +40,4 @@ function App() {
   )
 }
 
-export default App
+export default TodoList
