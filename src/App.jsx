@@ -21,7 +21,11 @@ function TodoList() {
 
 // Using the useReducer to Manage the State of the list revoked from the data.
 const [todos, dispatch] = useReducer(todoReducer, initialState)
-  
+const [newTodo, setNewTodo] = useState("");
+
+
+
+
   return (
     <>
       <div className="todoListMainContainer">
