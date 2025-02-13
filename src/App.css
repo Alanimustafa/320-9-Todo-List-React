@@ -1,0 +1,71 @@
+.todoAppAssignment {
+  text-decoration: underline;
+}
+
+.todoAppHeader {
+  justify-self: center;
+}
+
+.todoInputContainer {
+  
+  border: orange solid 2px;
+  border-radius: 10px;;
+  width: 50vw;
+  height: 10vh;
+  justify-self: center;
+  align-content: center;
+  justify-items: space-evenly;
+}
+
+.todoInputFiled {
+  width: 20vw;
+  
+}
+
+.todoAddBTN {
+  width: 10vw;
+  border-radius: 5px;
+  background-color: rgb(203, 226, 255);
+  margin-left: 1vw;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.todosData {
+  border: black solid 2px;
+  border-radius: 10px;
+  width: 50vw;
+  min-height: 20vh;
+  max-height: fit-content;
+  justify-self: center;
+  
+}
+
+.todolistbollet {
+  display: flex;
+}
+
+.displayTodoListLI {
+  width: 35vw;
+}
+
+.todoCheckBox {
+  margin-left: 15px;
+  width: 25px;
+  cursor: pointer;
+}
+
+.editDeleteBTNS {
+  width: 4vw;
+  margin-left: 5px;
+  border-radius: 5px;
+  background-color: rgb(203, 226, 255);
+  margin-left: 1vw;
+  cursor: pointer;
+}
+.todoJobBTNsContainer {
+  justify-self:right;
+  margin-left: 1vw;
+  width: 15vw;
+  justify-items: center;
+}
