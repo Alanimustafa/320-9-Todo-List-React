@@ -16,16 +16,20 @@ function App() {
         <div className="todosData">
           <ul>
             <h3>Current List</h3> 
+
+            {initialState.map(todo => (
             <li className='todolistbollet'>
-              <input className='displayTodoListLI' type="text" /> 
-              <input className='todoCheckBox' type="checkbox" />
-              <div className='todoJobBTNsContainer'>
-                  <button className='editDeleteBTNS'>Edit</button>
-                  <button className='editDeleteBTNS'>Delete</button>
-              </div>
+            <input className='displayTodoListLI' type="text" value={todo.title}/> 
+            <input className='todoCheckBox' type="checkbox" value={todo.completed}/>
+            <div className='todoJobBTNsContainer'>
+                <button className='editDeleteBTNS'>Edit</button>
+                <button className='editDeleteBTNS'>Delete</button>
+            </div>
+          </li>
 
 
-            </li>
+
+            ))}
           </ul>
 
         </div>
