@@ -10,20 +10,27 @@ function TodoList() {
 
     //Creating sswtiches for the action cases 
     switch (action.type) {
-      case "ADD_TODO" : return [{}, ...state];
+      case "ADD_TODO" : return [{ id: Date.now(), title: action.payload, completed: false, editing: false }, ...state];
       case "CHECKED_COMPLETE" : return state.map(todo => todo.id === action.payload ? { ...todo, completed: !todo.completed } : todo); // Looping through the state to mark completion of the current todo.
       case "DELETE_TODO" : return state.filter(todo => todo.id !== action.payload); // Deleting the selected Todo using the id
       case "EDIT_TODO" : return state.map(todo => todo.id === action.payload ? { ...todo, editing: true } : todo);
       case "SAVE_TODO" : return state.map(todo => todo.id === action.payload.id ? { ...todo, text: action.payload.text, editing: false } : todo);
+      default:
+        return state;
     }
-
+    
   }
 
 // Using the useReducer to Manage the State of the list revoked from the data.
 const [todos, dispatch] = useReducer(todoReducer, initialState)
 const [newTodo, setNewTodo] = useState("");
 
-
+const addTodo = () => {
+  if (newTodo.trim() === "") return;
+  console.log(newTodo);
+  dispatch({ type: "ADD_TODO", payload: newTodo });
+  setNewTodo("");
+};
 
 
   return (
@@ -32,8 +39,14 @@ const [newTodo, setNewTodo] = useState("");
         <h4 className='todoAppAssignment'>320-9 - Building a Todo List</h4>
         <h1 className='todoAppHeader'>Todo List Applicaiton</h1>
         <div className="todoInputContainer">
-            <input className='todoInputFiled' type="text" placeholder='todo'/>
-            <button className='todoAddBTN'>ADD</button>
+            <input className='todoInputFiled' 
+                  type="text" 
+                  placeholder='Enter todo'
+                  value = {newTodo}
+                  onChange={(event) => setNewTodo(event.target.value)}/>
+            <button className='todoAddBTN'
+                    onClick={addTodo}
+            >ADD</button>
         </div>
         <div className="todosData">
           <ul>
@@ -48,7 +61,7 @@ const [newTodo, setNewTodo] = useState("");
                             onBlur={(event) => dispatch({ type: "SAVE_TODO", payload: { id: todo.id, text: event.target.value } })} 
                             autoFocus/> 
                   ) : (
-                    <input className='displayTodoListLI' value={todo.title}/>
+                    <input className='displayTodoListLI' defaultValue={todo.title}/>
                   )}
                     
                     <input className='todoCheckBox' 
