@@ -7,11 +7,9 @@
 }
 
 .todoInputContainer {
-  
-  border: orange solid 2px;
   border-radius: 10px;;
-  width: 50vw;
-  height: 10vh;
+  width: auto;
+  height: 20vh;
   justify-self: center;
   align-content: center;
   justify-items: space-evenly;
@@ -19,11 +17,11 @@
 
 .todoInputFiled {
   width: 20vw;
-  
 }
 
 .todoAddBTN {
   width: 10vw;
+  border: gray solid 1px;
   border-radius: 5px;
   background-color: rgb(203, 226, 255);
   margin-left: 1vw;
@@ -32,13 +30,14 @@
 }
 
 .todosData {
-  border: black solid 2px;
+  border: rgb(141, 132, 132) solid 2px;
+  background-color: rgb(189, 204, 224);
   border-radius: 10px;
   width: 50vw;
   min-height: 20vh;
   max-height: fit-content;
   justify-self: center;
-  
+  margin-top: 50px;;  
 }
 
 .todolistbollet {
@@ -59,11 +58,23 @@
 .editDeleteBTNS {
   width: 4vw;
   margin-left: 5px;
+  border: gray solid 1px;
   border-radius: 5px;
   background-color: rgb(203, 226, 255);
   margin-left: 1vw;
   cursor: pointer;
 }
+
+.DeleteBTNS {
+    width: 4vw;
+  margin-left: 5px;
+  border: gray solid 1px;
+  border-radius: 5px;
+  background-color: rgb(203, 226, 255);
+  margin-left: 1vw;
+  cursor: pointer;
+}
+
 .todoJobBTNsContainer {
   justify-self:right;
   margin-left: 1vw;

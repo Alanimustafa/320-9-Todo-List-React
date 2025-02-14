@@ -11,8 +11,8 @@ const [todos, dispatch] = useReducer(todoReducer, initialState)
 const [newTodo, setNewTodo] = useState("");
 
 const addTodo = () => {
-  if (newTodo.trim() === "") return;
-  console.log(newTodo);
+  if (newTodo.trim() === "") return  // To prevent adding empty string
+  // console.log(newTodo); Check for test.
   dispatch({ type: "ADD_TODO", payload: newTodo });
   setNewTodo("");
 };
@@ -43,7 +43,7 @@ const addTodo = () => {
                       <input className='displayTodoListLI' 
                             type="text" 
                             defaultValue={todo.title} 
-                            onBlur={(event) => dispatch({ type: "SAVE_TODO", payload: { id: todo.id, text: event.target.value } })} 
+                            onBlur={(event) => dispatch({ type: "SAVE_TODO", payload: { id: todo.id, text: event.target.value }})} 
                             autoFocus/> 
                   ) : (
                     <input className='displayTodoListLI' defaultValue={todo.title}/>
@@ -61,7 +61,7 @@ const addTodo = () => {
                                     onClick={() => dispatch({ type: "EDIT_TODO", payload: todo.id })} // Dispath -> Action type "EDIT_TODO"
                             >Edit</button>
 
-                            <button className='editDeleteBTNS'
+                            <button className='DeleteBTNS'
                                     onClick={() => dispatch({ type: "DELETE_TODO", payload: todo.id })} // Dispatch -> Action type "DELETE_TODO"
                                     disabled={!todo.completed}
                             >Delete</button>
